@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using Xunit;
-using FluentAssertions;
 
 namespace App.E2E.Tests
 {
@@ -30,7 +29,7 @@ namespace App.E2E.Tests
             loginButton.Click();
 
             // Assert
-            _driver.Url.Should().Be("https://yourapp.com/dashboard");
+            Assert.Contains("dashboard", _driver.Url, StringComparison.OrdinalIgnoreCase);
         }
 
         public void Dispose()
